@@ -1,5 +1,6 @@
 from django.shortcuts import render
-
+from .forms import ClientForm
+from .models import Product, Customer
 # Create your views here.
 
 
@@ -10,4 +11,5 @@ def register(request):
     if request.method == 'POST':
         pass
     else:
-        return render(request, "register.html")
+        form = ClientForm
+        return render(request, "register.html", {'form': form})

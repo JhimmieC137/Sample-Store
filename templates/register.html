@@ -9,11 +9,15 @@
 <body>
     <h2>Register here</h2>
     <form action="" method="post">
+        {% csrf_token %}
         <div>
             {{form.first_name}}
         </div>
         <div>
             {{form.last_name}}
+        </div>
+        <div>
+            {{form.username}}
         </div>
         <div>
             {{form.email}}
@@ -22,11 +26,7 @@
             {{form.phone}}
         </div>
         <div>
-            {{form.password1}}
-        </div>
-        <div>
-            {{form.password2}}
-        </div>
+            {{form.password}}
         <div>
             <button type="submit">Submit</button>
         </div>

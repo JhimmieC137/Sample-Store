@@ -9,6 +9,7 @@ class Registration(models.Model):
     last_name = models.CharField(max_length=20, null=False)
     phone = PhoneNumberField()
     email = models.EmailField(max_length=40, null=False)
+    username = models.CharField(max_length=40, null=False)
     password = models.CharField(max_length=50, null=False)
     
 class Customer(models.Model):
@@ -20,5 +21,5 @@ class Customer(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=20, null=False)
     description = models.CharField(max_length=200, null=False)
-    price = models.IntegerField(max_length=10, null=False)
+    price = models.IntegerField(null=False)
     image = models.ImageField(upload_to='media')
