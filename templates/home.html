@@ -7,20 +7,27 @@
     <title>Store</title>
 </head>
 <body>
-    <p>Hey World!</p>
+    <h1>Store</h1>
+    <p>Create an account to purchase our products</p><br><br>
+
     {% if user.is_authenticated %}
         <p>Logout <a href="/accounts/logout">here!</a></p>
         <a href="/accounts/dashboard">Profile</a>
-        {% for product in products %}
-            <p>{{product.name}}</p>
-            <p>{{product.description}}</p>
-            <p>{{product.price}}</p>
-            <img src="{{product.image.url}}"><br>
-            <a href="/store/create_order/{{product.id}}">Buy</a><br><br><br><br><br><br>
-        {% endfor %}
     {% else %}
         <p>Resgister <a href="/accounts/register">here!</a></p>
         <p>Login <a href="/accounts/login">here!</a></p>
     {% endif %}
+
+    <h2>Products</h2>
+    {% for product in products %}
+            <p>{{product.name}}</p>
+            <p>{{product.description}}</p>
+            <p>{{product.price}}</p>
+            <img src="{{product.image.url}}"><br>
+
+            {% if user.is_authenticated %}
+                <a href="/store/create_order/{{product.id}}">Buy</a><br><br><br><br><br><br>
+            {% endif %}
+        {% endfor %}
 </body>
 </html>
