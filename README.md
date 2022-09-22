@@ -2,7 +2,7 @@
 Sample-Store is a django project that creates a store for registered users to buy products, change their profile details and check their transaction history. It contains two applications. The 'store' app to display all available products, links to buy them and the 'userprofile' app that takes care of everthing concerning registeration, login, logout, user profile and others.      
 
 # To run this application
-Clone the repo, create a virtual environment, install the dependencies using 'pip install -r requirements.txt', configrue the settings file by connecting it to a database engine and then run the server with 'python manage.py runserver'. Templates were added for the different enpoints to show how the worked. 
+Clone the repo, create a virtual environment, install the dependencies using 'pip install -r requirements.txt', configrue the settings file by connecting it to a database engine and then run the server with 'python manage.py runserver'. Templates were added for the different enpoints to show how the API works. 
 
 Create a superuser with 'python manage.py create superuser', log into the admin console and populate the database with details on products. Sign up with the Api and login. 
 
