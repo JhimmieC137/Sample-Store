@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .forms import UserSignupForm, UserUpdateForm, ProfileUpdateForm
 from .models import Profile
+from store.models import Order
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
@@ -10,24 +11,6 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-# def dashboard(request):
-#     form = ProfileForm
-#     if request.method == 'POST':
-#         form = ProfileForm(request.POST, instance = request.user)
-#         # user = request.user
-        
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, "Saved successfully")
-#             # phone = form.cleaned_data['phone']
-#             # address = form.cleaned_data['address']
-#             # user = Profile.objects.filter(user = user).update(phone=phone, address=address)
-#             return redirect('/store')
-#         else:
-#             print(form)
-#             messages.info(request, 'Invalid credentials')
-#             return redirect('dashboard')
-#     return render(request, 'dashboard.html',{"form": form})
 def register(request):
     form = UserSignupForm()
     if request.method == 'POST':
@@ -89,3 +72,9 @@ def dashboard(request):
         'profile_form': profile_form
     }
     return render(request, 'profile.html', load_up)
+
+
+@login_required
+def history(request):
+    orders = Order.objects.all().filter(customer=request.user.profile)
+    return render(request, 'order_history.html', {'orders':orders})
