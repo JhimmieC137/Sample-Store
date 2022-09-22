@@ -8,6 +8,15 @@
 </head>
 <body>
     <p>Hey World!</p>
-    <p>Resgister <a href="/store/register">here!</a></p>
+    {% if user.is_authenticated %}
+        <p>Logout <a href="/accounts/logout">here!</a></p>
+        <a href="/accounts/dashboard">Edit profile</a>
+        <p>Product 1</p>
+        <p>Product 2</p>
+        <p>Product 3</p>
+    {% else %}
+        <p>Resgister <a href="/accounts/register">here!</a></p>
+        <p>Login <a href="/accounts/login">here!</a></p>
+    {% endif %}
 </body>
 </html>

@@ -7,19 +7,22 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="" method="POST">
+    <h1>{{user.username}}'s Profile</h1>
+    <h3>{{user.email}}</h3>
+
+    <img src="{{user.profile.profile_pic.url}}">
+
+
+    <form action="" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <div>
-            {{form}}
+            {{user_form}}
         </div>
         <div>
-            <button type="submit">Sign Up</button>
+            {{profile_form}}
         </div>
-        <p>If you already have an account, login <a href="/accounts/login">here</a></p><br>
-        <a href="/store">Home</a>
+            <button type="submit">Update</button>
+        </div>
     </form>
-    {% if message in messages %}
-        <p>{{message}}</p>
-    {% endif %}
 </body>
 </html>

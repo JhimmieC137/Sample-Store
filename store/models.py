@@ -7,7 +7,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 class Registration(models.Model):
     first_name = models.CharField(max_length=20, null=False)
     last_name = models.CharField(max_length=20, null=False)
-    phone = PhoneNumberField()
+    # phone = PhoneNumberField()
     email = models.EmailField(max_length=40, null=False)
     username = models.CharField(max_length=40, null=False)
     password = models.CharField(max_length=50, null=False)
@@ -19,7 +19,7 @@ class Customer(models.Model):
     products = models.CharField(max_length=50, null=False)
     
 class Product(models.Model):
-    name = models.CharField(max_length=20, null=False)
+    name = models.CharField(max_length=20, null=False) 
     description = models.CharField(max_length=200, null=False)
     price = models.IntegerField(null=False)
     image = models.ImageField(upload_to='media')

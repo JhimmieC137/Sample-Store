@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('store/', include('store.urls')),
-    #swagger.io path
+    path('accounts/', include('userprofile.urls')),
 ]
 
 
